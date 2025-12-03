@@ -7,7 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 // your API key
-const genAI = new GoogleGenerativeAI("AIzaSyCkjctRpMM6HvMI7SAxkVwym2_L99c3Tto");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
 
 app.post("/outfit", async (req, res) => {
   try {
@@ -37,3 +38,4 @@ Do not use bullet points or long paragraphs.
 // IMPORTANT: Render uses process.env.PORT
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log("Backend running on port " + PORT));
+
